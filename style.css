@@ -47,6 +47,9 @@ body {
 .Tarefa h3:hover {
   cursor: pointer;
 }
+.Tarefa h3{
+ user-select: none;
+}
 
 .Tarefa:hover {
   background-color: rgb(47, 85, 146);
@@ -99,7 +102,7 @@ body {
 }
 
 .conteudoNovaTarefa button {
-  border: none;
+  border: solid 3px transparent;
   background-color: rgb(0, 61, 158);
   color: rgb(186, 186, 186);
   font-weight: bold;
@@ -109,6 +112,11 @@ body {
   align-self: center;
   margin-top: 2%;
   margin-bottom: -2%;
+}
+
+.conteudoNovaTarefa button:hover {
+  border: solid rgb(112, 109, 109) 3px;
+  cursor: pointer;
 }
 
 .close {
