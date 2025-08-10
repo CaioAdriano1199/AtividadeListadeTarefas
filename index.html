@@ -10,8 +10,8 @@
 
 <body>
     <div class="titulo">
-        <h1>Lista de Tarefas</h1>
-        <button class="Btitulo" id="myBtn">+</button>
+        <h1 style="color: rgb(186, 186, 186);">Lista de Tarefas</h1>
+        <button class="BotaoTarefa" style="font-size: 160%;color: rgb(186, 186, 186);" id="myBtn">+</button>
     </div>
     <div id="tarefas" class="Tarefascriadas">
     </div>
@@ -24,9 +24,11 @@
         </div>
     </div>
     <div id="MenuEditarTarefa" class="modal">
-        <span class="close" style="display: flex; justify-content: end;">&times;</span>
-        <input type="text" id="EdicaoTarefa">
-        <button onclick="EditarTarefa()" id="adicionarTarefa">Salvar Edição</button>
+        <div class="conteudoNovaTarefa">
+            <span class="close" style="display: flex; justify-content: end;">&times;</span>
+            <input type="text" id="EdicaoTarefa">
+            <button onclick="EditarTarefa()" id="adicionarTarefa">Salvar Edição</button>
+        </div>
     </div>
 
     <script src="script.js" defer></script>
