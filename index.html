@@ -9,47 +9,73 @@
 </head>
 
 <body>
-    <h1>Lista de Tarefas</h1>
-    <button id="myBtn">+</button>
-    <div id="tarefas">
+    <div class="titulo">
+        <h1>Lista de Tarefas</h1>
+        <button class="Btitulo" id="myBtn">+</button>
+    </div>
+    <div id="tarefas" class="Tarefascriadas">
     </div>
     <div id="MenuNovaTarefa" class="modal">
 
         <div class="conteudoNovaTarefa">
             <span class="close" style="display: flex; justify-content: end;">&times;</span>
             <input type="text" id="ConteudoTarefa" placeholder="Sua tarefa">
-            <button>Adicionar Tarefa</button>
+            <button onclick="adicionarTarefa()" id="adicionarTarefa">Adicionar Tarefa</button>
         </div>
+    </div>
+    <div id="MenuEditarTarefa" class="modal">
+        <span class="close" style="display: flex; justify-content: end;">&times;</span>
+        <input type="text" id="EdicaoTarefa">
+        <button onclick="EditarTarefa()" id="adicionarTarefa">Salvar Edição</button>
     </div>
 
     <script>
+        const Tarefaslista = [];
         function adicionarTarefa() {
-            document.getElementById('tarefas').innerHTML = '<p>teste</p>'
+            const conteudoinputcriar = document.getElementById('ConteudoTarefa');
+            let descricao = conteudoinputcriar.value;
+            Tarefaslista.push(descricao);
+            let fLen = Tarefaslista.length;
 
-            const novaTarefa = document.createElement('p');
-            novaTarefa.textContent = 'TarefaTest';
-            document.getElementById('tarefas').appendChild(novaTarefa);
+            let text = "<div>";
+            for (let i = 0; i < fLen; i++) {
+                text += `<h3>${Tarefaslista[i]}</h3><button onclick=EditarTarefa(${i})>Editar</button><button onclick=DeletarTarefa(${i})>Excluir</button>`;
+            }
+            text += "</div>";
+
+            document.getElementById("tarefas").innerHTML = text;
+
+            conteudoinputcriar.value = "";
+            modal.style.display = "none";
+        }
+
+        function EditarTarefa(indice) {
+            var modalE = document.getElementById("MenuEditarTarefa");
+            modalE.style.display = "block"
+            let tarefa= Tarefaslista[indice];
+            document.getElementById("EdicaoTarefa").value=tarefa;
+
+        }
+
+        function DeletarTarefa(Tarefa) {
+
         }
 
         var modal = document.getElementById("MenuNovaTarefa");
 
-        // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on the button, open the modal
+
         btn.onclick = function () {
             modal.style.display = "block";
         }
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
