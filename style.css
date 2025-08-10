@@ -11,6 +11,10 @@
   background-color: rgba(0,0,0,0.4);
 }
 
+.check{
+  text-decoration: line-through;
+}
+
 .conteudoNovaTarefa {
   gap: 8px;
   display: flex;

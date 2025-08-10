@@ -29,59 +29,7 @@
         <button onclick="EditarTarefa()" id="adicionarTarefa">Salvar Edição</button>
     </div>
 
-    <script>
-        const Tarefaslista = [];
-        function adicionarTarefa() {
-            const conteudoinputcriar = document.getElementById('ConteudoTarefa');
-            let descricao = conteudoinputcriar.value;
-            Tarefaslista.push(descricao);
-            let fLen = Tarefaslista.length;
-
-            let text = "<div>";
-            for (let i = 0; i < fLen; i++) {
-                text += `<h3>${Tarefaslista[i]}</h3><button onclick=EditarTarefa(${i})>Editar</button><button onclick=DeletarTarefa(${i})>Excluir</button>`;
-            }
-            text += "</div>";
-
-            document.getElementById("tarefas").innerHTML = text;
-
-            conteudoinputcriar.value = "";
-            modal.style.display = "none";
-        }
-
-        function EditarTarefa(indice) {
-            var modalE = document.getElementById("MenuEditarTarefa");
-            modalE.style.display = "block"
-            let tarefa= Tarefaslista[indice];
-            document.getElementById("EdicaoTarefa").value=tarefa;
-
-        }
-
-        function DeletarTarefa(Tarefa) {
-
-        }
-
-        var modal = document.getElementById("MenuNovaTarefa");
-
-        var btn = document.getElementById("myBtn");
-
-        var span = document.getElementsByClassName("close")[0];
-
-
-        btn.onclick = function () {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
